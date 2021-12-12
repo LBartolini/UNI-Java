@@ -1,0 +1,10 @@
+int n = 3;
+long s = n*(n+1)/2;
+
+System.out.println(s);
+
+byte x = 2, y = 7, z = 12;
+
+short k = (short) x*y*z;
+
+System.out.println(k);

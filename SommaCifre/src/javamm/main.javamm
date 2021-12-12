@@ -1,0 +1,17 @@
+int x = 345;
+
+int unita, decine, centinaia;
+int somma;
+
+unita = x % 10;
+x /= 10;
+
+decine = x % 10;
+x /= 10;
+
+centinaia = x % 10;
+x /= 10;
+
+somma = unita + decine + centinaia;
+
+System.out.println(somma);

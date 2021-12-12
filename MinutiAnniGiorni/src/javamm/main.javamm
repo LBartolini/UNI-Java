@@ -1,0 +1,9 @@
+int minuti=230045, giorni, anno;
+
+giorni = minuti / (60*24);
+minuti = minuti % (60*24);
+
+anno = giorni / 365;
+giorni = giorni % 365;
+
+System.out.println("Anni: "+ anno+ " Giorni: "+ giorni+ " Minuti: "+ minuti);
