@@ -1,0 +1,72 @@
+int contaElementi(int[][] A){
+	int conta = 0;
+	
+	for(int i = 0; i < A.length; i++){
+		for(int j=0; j < A[0].length; j++){
+			if(A[i][j] != 0) conta++;
+		}
+	}
+	
+	return conta;
+}
+
+int[][] inserisciElementi(int[][] A, int numElementi){
+	int[][] compatta = new int[numElementi][3];
+	int p = 0;
+	
+	for(int i = 0; i < A.length; i++){
+		for(int j=0; j < A[0].length; j++){
+			if(A[i][j] != 0){
+				compatta[p][0] = A[i][j];
+				compatta[p][1] = i;
+				compatta[p][2] = j;
+				p++;
+			}
+		}
+	}
+	
+	return compatta;	
+}
+
+int minimo(int[][] A, int inizio){
+	int m = inizio;
+	
+	for(int i=inizio; i<A.length; i++){
+		if(A[i][0] < A[m][0]) m = i;
+	}
+	
+	return m;
+}
+
+void selectionSort(int[][] A){
+	int[] tmpSwap = new int[3];
+	int min;
+	
+	for(int i=0; i<A.length; i++){
+		min = minimo(A, i);
+		
+		tmpSwap[0] = A[i][0];
+		tmpSwap[1] = A[i][1];
+		tmpSwap[2] = A[i][2];
+		
+		A[i][0] = A[min][0];
+		A[i][1] = A[min][1];
+		A[i][2] = A[min][2];
+		
+		A[min][0] = tmpSwap[0];
+		A[min][1] = tmpSwap[1];
+		A[min][2] = tmpSwap[2];
+		 	
+	}
+	
+}
+
+int[][] compattaMatrice(int[][] A) {
+	int elementi = contaElementi(A);
+	if (elementi == 0) return null;
+	
+	int[][] compatta = inserisciElementi(A, elementi);	
+	selectionSort(compatta);
+	
+	return compatta;
+}
