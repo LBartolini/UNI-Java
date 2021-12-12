@@ -1,0 +1,9 @@
+int scalarProduct(int[] a, int[] b) {
+	int scProd = 0;
+	
+	for(int i = 0; i < a.length; i++){
+		scProd += a[i]*b[i];
+	}
+	
+	return scProd;
+}

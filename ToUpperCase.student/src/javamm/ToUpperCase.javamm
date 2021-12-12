@@ -1,0 +1,14 @@
+char[] upperCase(char[] a) {
+	char[] tmp = new char[a.length];
+	
+	for(int i = 0; i<a.length; i++){
+		int x = (int) a[i];
+		if(x<=122 && x>=97){
+			x -= 32;
+		}
+		
+		tmp[i] = (char) x;
+	}
+			
+	return tmp;
+}

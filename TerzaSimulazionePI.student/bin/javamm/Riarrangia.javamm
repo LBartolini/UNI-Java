@@ -1,0 +1,50 @@
+
+int[] contaPositiviNegativi(int[] a){
+	int[] ret = {0, 0};
+	
+	for(int i = 0; i < a.length; i++){
+		if(a[i] > 0){
+			ret[0]++;
+		}else{
+			ret[1]++;
+		}
+	}
+	
+	return ret;
+}
+
+int [] riarrangia (int [] a) {
+	int[] ret = new int[a.length];
+	int[] numPosNeg = contaPositiviNegativi(a);
+	
+	boolean flagNeg = (numPosNeg[1]>0), flagPos = (numPosNeg[0]>0);
+	int current = 0, last_pos=-1, last_neg=-1;
+	int contPos=0, contNeg=0;
+	
+	while(flagNeg || flagPos){
+		while(last_neg<a.length && flagNeg){ //cerca prox negativo
+			last_neg++;
+			if(a[last_neg]<0){
+				ret[current] = a[last_neg];
+				contNeg++; 
+				current++;
+				break;
+			}
+		}
+		
+		while(last_pos<a.length && flagPos){ //cerca prox positivo
+			last_pos++;
+			if(a[last_pos]>0){
+				ret[current] = a[last_pos];
+				contPos++; 
+				current++;
+				break;
+			}
+		}
+		
+		if(contNeg>=numPosNeg[1]) flagNeg=false;
+		if(contPos>=numPosNeg[0]) flagPos=false;
+	}
+	
+	return ret;
+}
