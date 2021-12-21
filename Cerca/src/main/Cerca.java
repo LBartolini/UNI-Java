@@ -1,7 +1,5 @@
 package main;
 
-import java.util.Random;
-
 public class Cerca {
 	/*
 	 * Definire un metodo RICORSIVO che restituisce true
@@ -13,7 +11,8 @@ public class Cerca {
 	static boolean cerca(int x, int[] a, int i) {
 		if(i >= a.length) return false;
 		if (a[i]==x) return true;
-		else return cerca(x, a, i+1);
+		
+		return cerca(x, a, i+1);
 	}
 	
 	static boolean cercaRic(int x, int[] a){
