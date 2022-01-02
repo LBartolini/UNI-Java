@@ -1,0 +1,26 @@
+
+int[] findNext(int[][] T, int r, int c){
+	int[] ret = new int[] {Math.max(r-1, 0), Math.max(c-1, 0)};
+	
+	for(int i = Math.max(r-1, 0); i<=Math.min(r+1, T.length-1); i++){
+		for(int j = Math.max(c-1, 0); j<=Math.min(c+1, T[0].length-1); j++){
+			if(T[i][j]==1){
+				if(i>ret[0]){
+					ret[0] = i;
+					ret[1] = j;
+				}else if(i==ret[0] && j>ret[1]){
+					ret[1] = j;
+				}
+			}
+		}
+	}
+	
+	return ret;
+}
+
+int[][] esplodiMatrice(int[][] T, int r, int c) {
+	if(T[r][c] == 0) return T;
+	T[r][c] = 0;
+	int[] next = findNext(T, r, c); // trovo l'elemento successivo
+	return esplodiMatrice(T, next[0], next[1]);		
+}
