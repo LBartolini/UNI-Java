@@ -2,16 +2,6 @@ package javamm;
 
 @SuppressWarnings("all")
 public class Downhill {
-  public static int max(int[] risultati) {
-    int max = risultati[0];
-    for (int r : risultati) {
-      if ((r > max)) {
-        max = r;
-      }
-    }
-    return max;
-  }
-  
   public static int trovaDDL(int[][] m, int[] x, int[] prev, int lungh) {
     if (((x[0] == prev[0]) && (x[1] == prev[1]))) {
       return lungh;
@@ -34,22 +24,23 @@ public class Downhill {
     return Downhill.trovaDDL(m, nextPos, x, (lungh + 1));
   }
   
-  public static void popolaRisultati(int[] risultati, int[][] m) {
-    int cont = 0;
+  public static int ddl(int[][] m) {
+    int max = 0;
     for (int i = 0; (i < m.length); i++) {
       for (int j = 0; (j < m[0].length); j++) {
         {
-          risultati[cont] = Downhill.trovaDDL(m, new int[] { i, j }, new int[] { -1, -1 }, 0);
-          cont++;
+          int x = Downhill.trovaDDL(m, new int[] { i, j }, new int[] { -1, -1 }, 0);
+          int _xjconditionalexpression = (int) 0;
+          if ((max >= x)) {
+            _xjconditionalexpression = max;
+          } else {
+            _xjconditionalexpression = x;
+          }
+          max = _xjconditionalexpression;
         }
       }
     }
-  }
-  
-  public static int ddl(int[][] m) {
-    int[] risultati = new int[(m.length * m[0].length)];
-    Downhill.popolaRisultati(risultati, m);
-    return Downhill.max(risultati);
+    return max;
   }
   
   public static void main(String[] args) {
