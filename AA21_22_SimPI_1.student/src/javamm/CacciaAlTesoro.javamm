@@ -1,0 +1,43 @@
+
+boolean step(char[][] M, int r, int c, int contPassi){
+	if(contPassi > (M[0].length*M.length)) return false;
+	
+	if(M[r][c] == 'A'){
+		return step(M, ((r+M.length-1)%M.length), c, contPassi+1);
+	}else if(M[r][c] == 'B'){
+		return step(M, ((r+M.length+1)%M.length), c, contPassi+1);
+	}else if(M[r][c] == 'S'){
+		return step(M, r, ((c+M[0].length-1)%M[0].length), contPassi+1);
+	}else if(M[r][c] == 'D'){
+		return step(M, r, ((c+M[0].length+1)%M[0].length), contPassi+1);
+	}else if(M[r][c] == 'T'){
+		return false;
+	}else if(M[r][c] == 'X'){
+		return true;
+	}else{
+		boolean x = step(M, ((r+M.length-1)%M.length), c, contPassi+1);
+		if(x) return true;
+		
+		boolean y = step(M, ((r+M.length+1)%M.length), c, contPassi+1);
+		if(y) return true;
+		
+		boolean z = step(M, r, ((c+M[0].length-1)%M[0].length), contPassi+1);
+		if(z) return true;
+		
+		boolean w = step(M, r, ((c+M[0].length+1)%M[0].length), contPassi+1);
+		if(w) return true;
+		
+		return false;
+	}
+}
+
+boolean cacciaAlTesoro(char[][] M) {
+
+	return step(M, 0, 0, 1);
+}
+
+char[][] m = new char[][] { {'B','B','D','B'},
+									{'B','D','B','B'},
+									{'D','B','B','X'}};
+
+cacciaAlTesoro(m);

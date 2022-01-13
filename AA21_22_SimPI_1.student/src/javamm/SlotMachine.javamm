@@ -1,0 +1,35 @@
+// Consegna 1: obbligatoria
+int[][] ruota(int[][] S, int[] r) {
+	int[][] ret = new int[S.length][S[0].length];
+	
+	for(int i = 0; i < S.length; i++){
+		for(int j = 0; j < S[0].length; j++){
+			ret[(i+r[j])%S.length][j] = S[i][j];
+		}
+	}
+
+	return ret;
+}
+
+// Consegna 2: facoltativa
+boolean controllaVincita(int[][] S) {
+	int rigaCentrale = S.length/2;
+	
+	for(int j = 0; j < S[0].length; j++){
+		if(S[rigaCentrale][j] == 0) return false;
+	}
+	
+	return true;
+}
+
+// Consegna 3: facoltativa
+boolean partitaCompleta(int[][] S, int[] r, int k) {
+	k--;
+	
+	int[][] nuovaMatrice = ruota(S, r);
+	if(controllaVincita(nuovaMatrice)) return true;
+	
+	if(k==0) return false;
+
+	return partitaCompleta(nuovaMatrice, r, k);
+}
