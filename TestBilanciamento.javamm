@@ -1,0 +1,26 @@
+int checkSum(int[] array, int i){
+	int sum = array[i]+array[array.length-i-1];
+	if(i==(array.length/2)-1){
+		return sum;
+	}
+	int nextSum = checkSum(array, i+1);
+	
+	if (nextSum == sum){
+		return nextSum;
+	} 
+	
+	return -1;
+}
+
+
+boolean testBilanciamento(int[] mioArray) {
+	if(mioArray.length % 2 != 0 || mioArray.length == 0) return false;
+	if(mioArray.length == 2){
+		if (mioArray[0] == mioArray[1]) return true;
+		return false;
+	}
+	int somma = mioArray[0]+mioArray[mioArray.length-1];
+	return  somma == checkSum(mioArray, 1);			
+}
+
+
