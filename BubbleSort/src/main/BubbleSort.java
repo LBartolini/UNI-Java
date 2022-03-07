@@ -3,6 +3,8 @@ package main;
 public class BubbleSort {
 	
 	private static void scambia(int[] v, int i, int j) {
+		if(i == j) return;
+		
 		int temp = v[i];
 		v[i] = v[j];
 		v[j] = temp;
@@ -23,7 +25,7 @@ public class BubbleSort {
 			boolean scambiAvvenuti = false;
 			for(int i = inizio+1; i <= fine; i++) {
 				if(v[i-1] > v[i]) {
-					BubbleSort.scambia(v, i-1, i);
+					scambia(v, i-1, i);
 					scambiAvvenuti = true;
 				}
 			}
@@ -37,7 +39,7 @@ public class BubbleSort {
 			fine--;
 			for(int i = fine; i >= inizio+1; i--) {
 				if(v[i-1] > v[i]) {
-					BubbleSort.scambia(v, i-1, i);
+					scambia(v, i-1, i);
 					
 					scambiAvvenuti = true;
 				}
@@ -62,7 +64,7 @@ public class BubbleSort {
 			scambiAvvenuti = false;
 			for(int i = inizio+1; i <= fine; i++) {
 				if(v[i-1] > v[i]) {
-					BubbleSort.scambia(v, i-1, i);
+					scambia(v, i-1, i);
 					
 					scambiAvvenuti = true;
 				}
@@ -77,7 +79,7 @@ public class BubbleSort {
 			fine--;
 			for(int i = fine; i >= inizio+1; i--) {
 				if(v[i-1] > v[i]) {
-					BubbleSort.scambia(v, i-1, i);
+					scambia(v, i-1, i);
 					
 					scambiAvvenuti = true;
 				}
@@ -100,7 +102,7 @@ public class BubbleSort {
 			
 			for(int i=0; i+passo < v.length; i++) {
 				if(v[i]>v[i+passo]) {
-					BubbleSort.scambia(v, i, i+passo);
+					scambia(v, i, i+passo);
 					
 					scambiAvvenuti = true;
 				}
