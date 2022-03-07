@@ -1,0 +1,14 @@
+
+boolean interoPalindromo (int n) {
+	int k=0, t=n;
+	
+	while(t>0){
+		k *= 10;
+		k += (t%10);
+		t /= 10;	
+	}
+	
+	return (n==k);
+}
+
+System.out.println(interoPalindromo(555));

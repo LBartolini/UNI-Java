@@ -1,0 +1,41 @@
+
+int[][] shuffleVerticale(int[][] T, int[] S){ // sposto le colonne
+	int[][] ret = new int[T.length][T[0].length];
+	
+	for(int i = 0; i < T.length; i++){
+		for(int j = 0; j < T[0].length; j++){
+			ret[i][S[j]] = T[i][j];		
+		}
+	}
+	
+	return ret;	
+}
+
+int[][] shuffleOrizzontale(int[][] T, int[] S){ // sposto le righe
+	int[][] ret = new int[T.length][T[0].length];
+
+	for(int i = 0; i < T.length; i++){
+		for(int j = 0; j < T[0].length; j++){
+			ret[S[i]][j] = T[i][j];		
+		}
+	}
+
+	return ret;	
+}
+
+
+int[][] shuffleMatrice(int[][] T, int[][] S) {
+	int[][] out = shuffleVerticale(T, S[0]);
+	
+	// eseguo tutti gli shuffle verticali 
+	for(int r = 1; r < S.length; r++){
+		out = shuffleVerticale(out, S[r]);
+	}
+	
+	// eseguo tutti gli shuffle orizzontali 
+	for(int r = 0; r < S.length; r++){
+		out = shuffleOrizzontale(out, S[r]);	
+	}
+	
+	return out;
+}
