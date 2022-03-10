@@ -13,7 +13,7 @@ public class Main {
 		Nodo b = new Nodo(g, "B");
 		Nodo c = new Nodo(g, "C");
 		Nodo d = new Nodo(g, "D");
-		
+				
 		g.addArco(a, c);
 		g.addArco(a, c);
 		
@@ -25,7 +25,8 @@ public class Main {
 		g.addArco(d, c);
 		
 		// Problema dei ponti di Königsberg
-		ArrayList<Nodo> out = g.getCicloEuleriano();
+		
+		ArrayList<Nodo> out = g.getCircuitoEuleriano();
 		
 		if(out == null) {
 			System.out.println("Non esiste un Cammino Euleriano");

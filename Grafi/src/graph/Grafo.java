@@ -6,6 +6,7 @@ public class Grafo {
 	
 	private ArrayList<Nodo> nodi;
 	private ArrayList<Arco> archi;
+	private int nArchiVisitati = 0;
 	
 	public Grafo() {
 		nodi = new ArrayList<Nodo>();
@@ -22,15 +23,14 @@ public class Grafo {
 		return true;
 	}
 	
-	public ArrayList<Nodo> getCicloEuleriano(){
+	public ArrayList<Nodo> getCircuitoEuleriano(){
 		ArrayList<Nodo> out = new ArrayList<Nodo>();
 		ArrayList<Nodo> temp;
 		
 		for(Nodo start: nodi) {
-			temp = getCicloEuleriano(start, start);
+			temp = getCircuitoEuleriano(start, start);
 			
 			if(temp != null) {
-				//out.add(start);
 				out.addAll(temp);
 				
 				return out;
@@ -40,7 +40,7 @@ public class Grafo {
 		return null;
 	}
 	
-	public ArrayList<Nodo> getCicloEuleriano(Nodo now, Nodo start){
+	private ArrayList<Nodo> getCircuitoEuleriano(Nodo now, Nodo start){
 		ArrayList<Nodo> out = new ArrayList<Nodo>();
 		ArrayList<Nodo> temp;
 		out.add(now);
@@ -61,7 +61,7 @@ public class Grafo {
 					}
 				}
 				
-				temp = getCicloEuleriano(next, start);
+				temp = getCircuitoEuleriano(next, start);
 				
 				if(temp != null) {
 					out.addAll(temp);
@@ -69,6 +69,62 @@ public class Grafo {
 					return out;
 				}else {
 					a.setVisitato(false);
+				}
+			}
+		}
+		
+		return null;
+	}
+	
+	public ArrayList<Nodo> getCamminoEuleriano(){
+		ArrayList<Nodo> out = new ArrayList<Nodo>();
+		ArrayList<Nodo> temp;
+		nArchiVisitati = 0;
+		
+		for(Nodo start: nodi) {
+			temp = getCamminoEuleriano(start);
+			
+			if(temp != null) {
+				out.addAll(temp);
+				
+				return out;
+			}
+		}
+		
+		return null;
+	} 
+	
+	private ArrayList<Nodo> getCamminoEuleriano(Nodo now){
+		ArrayList<Nodo> out = new ArrayList<Nodo>();
+		ArrayList<Nodo> temp;
+		out.add(now);
+		//ArrayList<Arco> archi_percorsi = new ArrayList<Arco>();
+		
+		for(Arco a: now.getArchi()) {
+			if(!a.getVisitato()) {
+				a.setVisitato(true);
+				nArchiVisitati++;
+				Nodo next = a.getDest(now);
+				
+				if(nArchiVisitati == archi.size()) {
+					if(checkVisitaCompleta()) {
+						return out;
+					}else {
+						a.setVisitato(false);
+						nArchiVisitati--;
+						return null;
+					}
+				}
+				
+				temp = getCamminoEuleriano(next);
+				
+				if(temp != null) {
+					out.addAll(temp);
+					
+					return out;
+				}else {
+					a.setVisitato(false);
+					nArchiVisitati--;
 				}
 			}
 		}
