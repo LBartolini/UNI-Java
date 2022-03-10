@@ -25,7 +25,7 @@ public class Main {
 		g.addArco(d, c);
 		
 		// Problema dei ponti di Königsberg
-		ArrayList<Nodo> out = g.getCamminoEuleriano();
+		ArrayList<Nodo> out = g.getCicloEuleriano();
 		
 		if(out == null) {
 			System.out.println("Non esiste un Cammino Euleriano");

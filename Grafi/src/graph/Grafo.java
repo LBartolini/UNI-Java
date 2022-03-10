@@ -22,12 +22,12 @@ public class Grafo {
 		return true;
 	}
 	
-	public ArrayList<Nodo> getCamminoEuleriano(){
+	public ArrayList<Nodo> getCicloEuleriano(){
 		ArrayList<Nodo> out = new ArrayList<Nodo>();
 		ArrayList<Nodo> temp;
 		
 		for(Nodo start: nodi) {
-			temp = getCamminoEuleriano(start, start);
+			temp = getCicloEuleriano(start, start);
 			
 			if(temp != null) {
 				//out.add(start);
@@ -40,7 +40,7 @@ public class Grafo {
 		return null;
 	}
 	
-	public ArrayList<Nodo> getCamminoEuleriano(Nodo now, Nodo start){
+	public ArrayList<Nodo> getCicloEuleriano(Nodo now, Nodo start){
 		ArrayList<Nodo> out = new ArrayList<Nodo>();
 		ArrayList<Nodo> temp;
 		out.add(now);
@@ -61,7 +61,7 @@ public class Grafo {
 					}
 				}
 				
-				temp = getCamminoEuleriano(next, start);
+				temp = getCicloEuleriano(next, start);
 				
 				if(temp != null) {
 					out.addAll(temp);
