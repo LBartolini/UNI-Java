@@ -1,0 +1,38 @@
+/*
+ * Modificare la classe ContoCorrente: i metodi deposito(double importo) 
+ * e prelievo(double importo) che restituivano un booleano per segnalare 
+ * successo o errore devono adesso segnalare eventuali errori tramite 
+ * eccezioni (non c’è più quindi bisogno di restituire un booleano).
+ * 
+ * Le eccezioni dovranno essere definite in modo personalizzato e ordinate 
+ * gerarchicamente. Bisogna creare un’eccezione di base checked di nome 
+ * ContoCorrenteException, da cui derivano altre due sottoclassi.
+ * Nel caso in cui l’importo sia negativo avremo una ImportoNegativoException.
+ * In caso di saldo insufficiente avremo una SaldoInsufficienteException.
+ * Ogni eccezione (la base e le derivate) hanno un costruttore per inizializzare 
+ * il messaggio.  Ogni eccezione sollevata deve riportare un messaggio con 
+ * i dettagli del problema. In caso di importo negativo viene visualizzata 
+ * la stringa ("Importo negativo: " + importo) dove importo è un valore double.
+ * In caso di saldo insufficiente viene visualizzata la stringa 
+ * ("Saldo= " + saldo + ", impossibile prelevare " + importo) dove saldo e 
+ * importo sono valori double.
+ * 
+ * Aggiungere alla classe ContoCorrente un meccanismo per contare le operazioni 
+ * di prelievo avvenute su una istanza, sia quelle andate a buon fine che quelle 
+ * non andate a buon fine. Modificare quindi i metodi deposito() e prelievo(),
+ * per controllare che il numero delle operazioni non superi 100 e sollevare 
+ * in tal caso TroppeOperazioniException (derivata anch'essa da 
+ * ContoCorrenteException). L'eccezione di tipo TroppeOperazioniException dovrà
+ * contenere l'importo da prelevare/depositare (con segno negativo/positivo, 
+ * rispettivamente), in modo da poter essere utilizzato al momento della 
+ * gestione della eccezione.  
+ * 
+ * Creare una classe Main con un metodo main che crea un conto corrente ed
+ * esegue alcune operazioni di deposito e prelievo (definite liberamente 
+ * dallo studente allo scopo di testare la classe ContoCorrente). Catturare 
+ * l'eccezione TroppeOperazioniException che verrà gestita nel modo seguente:
+ * il numero di operazioni del conto viene azzerato, viene stampato un messaggio 
+ * che informa che l'operazione di prelievo o deposito è stata annulata, 
+ * il saldo viene ridotto di una spesa fissa di 50 euro (a tal fine, modificare 
+ * di conseguenza anche la classe ContoCorrente).      
+ */

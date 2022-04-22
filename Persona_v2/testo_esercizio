@@ -1,0 +1,32 @@
+/* Data la classe Persona sotto riportata,
+ * estenderla con la classe Studente definita
+ * nel modo seguente.
+ * Uno studente e' caratterizzato dalle seguenti 
+ * informazioni aggiuntive: matricola e  
+ * lista degli esami sostenuti (si assume un numero
+ * massimo di 30 esami).  
+ * Ogni esame sostenuto è caratterizzato da: 
+ * nome del corso, numero di crediti, voto
+ * (i voti sono in trentesimi, ma non si considera 
+ * la lode).  
+ * 
+ * Definire il costruttore della classe Studente 
+ * che abbia come parametro aggiuntivo la matricola.
+ * 
+ * Definire il metodo della classe Studente per 
+ * inserire un nuovo esame.
+ * 
+ * Definire il metodo della classe Studente per 
+ * il calcolo della media ponderata, ovvero media 
+ * pesata rispetto al numero di crediti di ciascun 
+ * esame. Mostrare tutte le cifre decimali della 
+ * media calcolata.   
+ * 
+ * Sovrascrivere il metodo toString() restituendo 
+ * tutti i dati dello studente, cioè nome, cognome, 
+ * eta', matricola, media e lista degli esami 
+ * sostenuti.
+ * 
+ * NB: la classe Persona non puo' essere modificata
+ * in alcun modo! 
+ */
