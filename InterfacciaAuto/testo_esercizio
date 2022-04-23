@@ -1,0 +1,28 @@
+/*
+ * Data la interfaccia InterfacciaAuto, definire la
+ * la classe Auto che implementa l'interfaccia.
+ * Il serbatio di ogni auto avrà la capienza massima
+ * definita nell'interfaccia.
+ *
+ * La  classe Auto è descritta sinteticamente
+ * con il consumo medio (litri per 100 Km)e
+ * gestisce il serbatoio del carburate.
+ *
+ * La classe Auto deve offrire, in aggiunta al costruttore,
+ * i seguenti metodi.
+ *
+ * Il metodo 'viaggio' permette di effettuare un viaggio con
+ * i chilometri forniti come parametro, a condizione che la
+ * benzina del serbatoio e i consumi del veicolo lo permettano.
+ * I chilometri percorsi da ogni viaggio sono memorizzati per
+ * supportare il calcolo di informazioni sull'uso dell'auto.
+ * Per semplicità si assume un massimo di 100 viaggi.
+ *
+ * Il metodo 'rifornimento' permette di effettuare il rifornimento
+ * se non si eccede la capacità massima del serbatoio. Il metodo
+ * restituisce il numero di chilometri percorsi dall'ultimo
+ * rifornimento effettuato.
+ *
+ * Infine, il metodo 'media' restituisce i chilometri che in media
+ * sono percorsi in un viaggio.
+ */
