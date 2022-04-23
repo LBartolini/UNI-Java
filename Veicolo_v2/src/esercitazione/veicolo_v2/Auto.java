@@ -3,20 +3,23 @@ package esercitazione.veicolo_v2;
 public class Auto extends Veicolo {
 	
 	private final double MAX_SERBATOIO = 120.0;
+	private final int MAX_VIAGGI = 100;
 	private double serbatoio;
 	private int[] viaggi;
 	private int indiceViaggi, kmUltimoRifornimento;;
 	
 	public Auto(double consumo) throws Exception{
 		super(consumo);
-		viaggi = new int[100];
+		viaggi = new int[MAX_VIAGGI];
 		indiceViaggi = 0;
 		serbatoio = 0;
 		kmUltimoRifornimento = 0;
 	}
 
 	public void viaggio(int k) throws Exception {
-		if(indiceViaggi == 100)
+		if(k <= 0)
+			throw new Exception("Il valore dei km deve essere positivo!");
+		if(indiceViaggi == MAX_VIAGGI)
 			throw new Exception("Limite massimo di viaggi raggiunto!");
 		if((getConsumo()/100)*k > serbatoio)
 			throw new Exception("Benzina nel serbatoio non sufficiente!");
@@ -27,6 +30,8 @@ public class Auto extends Veicolo {
 	}
 
 	public int rifornimento(double c) throws Exception {
+		if(c <= 0)
+			throw new Exception("Il valore del rifornimento deve essere positivo!");
 		if(serbatoio+c > MAX_SERBATOIO)
 			throw new Exception("Capienza massima del serbatoio raggiunta!");
 		

@@ -1,0 +1,36 @@
+/* Data la classe Persona sotto riportata,
+ * estenderla con la classe Operaio definita
+ * nel modo seguente.
+ * Un operaio e' caratterizzato dalle seguenti 
+ * informazioni aggiuntive: retribuzione oraria 
+ * standard in euro, retribuzione oraria degli 
+ * straordinari in euro, e lista delle ore standard 
+ * e straordinarie svolte giornalmente (si assume 
+ * un numero massimo di 20 giornate di lavoro al mese).  
+ * La retribuzione degli straordinari deve essere 
+ * strettamente maggiore di quella standard. 
+ * 
+ * Definire il metodo della classe Operaio per 
+ * inserire le ore di una singola giornata di 
+ * lavoro. Il metodo prende le ore totali della 
+ * giornata come unico parametro; fino ad un 
+ * massimo di 8 vengono considerate come ore 
+ * standard, eventuali ore aggiuntive sono 
+ * considerate come straordinari, comunque nel 
+ * totale le ore giornaliere non possono superare
+ * le 12 ore.  
+ * 
+ * Definire il metodo della classe Operaio per 
+ * il calcolo dello stipendio mensile, basato sul 
+ * numero di ore standard/straordinarie e le 
+ * rispettive retribuzioni. Il metodo svuotera' 
+ * le liste delle ore in vista del mese successivo.   
+ * 
+ * Sovrascrivere il metodo toString() restituendo 
+ * tutti i dati dell'operaio, cioe' nome, cognome, 
+ * eta', lista delle ore attualmente svolte nel 
+ * mese in corso.  
+ * 
+ * NB: la classe Persona non puo' essere modificata
+ * in alcun modo! 
+ */
