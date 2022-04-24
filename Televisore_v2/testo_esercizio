@@ -1,0 +1,35 @@
+/*
+ * Data la classe Televisore, che descrive 
+ * un televisore generico con le sole caratteristiche
+ * del numero di pollici e del nome del modello, 
+ * estenderla con la classe Radiomarelli (il cui nome 
+ * fa riferimento ad un costruttore di televisori degli 
+ * anni 50).
+ * 
+ * La classe Radiomarelli permette di instanziare 
+ * oggetti fornendo, oltre ai pollici e al modello, 
+ * anche il numero di canali. Il costruttore della 
+ * classe Radiomarelli accerta che il numero di canali 
+ * sia maggiore strettamente di 1. 
+ * 
+ * Nella classe Radiomarelli deve essere definito un 
+ * metodo setCanale, che permette di impostare la 
+ * frequenza per un determinato canale. Il canale è 
+ * identificato da un numero naturale, mentre la 
+ * frequenza è un numero intero che deve essere 
+ * compreso tra 600 e 800 (estremi inclusi). Ad 
+ * esempio, il televisore potrebbe avere il canale 
+ * 6 alla frequenza 715. Deve essere garantito che 
+ * non ci siano canali diversi con la stessa 
+ * frequenza; se si tenta di impostare a canali 
+ * diversi la stessa frequenza, il metodo setCanale 
+ * terminerà comunque correttamente, ma senza fare 
+ * alcuna modifica.
+ * 
+ * Infine, riscrivere nella classe Radiomarelli 
+ * il metodo toString per la stampa dei dati del 
+ * televisore, ovvero nome modello, numero di 
+ * pollici e lista dei canali (cioè la lista di 
+ * coppie canale-frequenza per tutti i canali 
+ * che sono stati impostati).
+ */
