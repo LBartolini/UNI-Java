@@ -2,6 +2,8 @@ package esercitazione.contoCorrente;
 
 
 public class ContoCorrente {
+	
+	private final int MAX_OP = 100, MALUS_TROPPE_OP = 50;
 	private final String nome;
 	private int numeroOperazioni;
 	private double saldo;
@@ -26,25 +28,27 @@ public class ContoCorrente {
 	}
 
 	public void deposito(double importo) throws ImportoNegativoException, TroppeOperazioniException {
+		numeroOperazioni++;
 		if (importo < 0) {
 			throw new ImportoNegativoException(importo);
 		}
-		if(numeroOperazioni==100) {
-			this.saldo -= 50;
+		if(numeroOperazioni>=MAX_OP) {
+			this.saldo -= MALUS_TROPPE_OP;
 			throw new TroppeOperazioniException(importo);
 		}
 		saldo += importo;
-		numeroOperazioni++;
 	}
 	
-	public void prelievo(double importo) throws SaldoInsufficienteException, TroppeOperazioniException{
-		if ((importo < 0) || (importo > saldo))
+	public void prelievo(double importo) throws SaldoInsufficienteException, TroppeOperazioniException, ImportoNegativoException{
+		numeroOperazioni++;
+		if(importo < 0)
+			throw new ImportoNegativoException(importo);
+		if (importo > saldo)
 			throw new SaldoInsufficienteException(saldo, importo);
-		if(numeroOperazioni==100) {
-			this.saldo -= 50;
+		if(numeroOperazioni>=MAX_OP) {
+			this.saldo -= MALUS_TROPPE_OP;
 			throw new TroppeOperazioniException(-importo);
 		}
 		saldo -= importo;
-		numeroOperazioni++;
 	}
 } 
