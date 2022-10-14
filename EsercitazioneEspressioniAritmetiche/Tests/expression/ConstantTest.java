@@ -8,9 +8,7 @@ public class ConstantTest {
 
 	@Test
 	public void testEval() {
-		Expression constant = new Constant(10);
-		
-		assertEquals(10, constant.eval());
+		assertEquals(10, new Constant(10).eval());
 	}
 
 }

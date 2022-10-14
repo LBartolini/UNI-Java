@@ -10,17 +10,13 @@ public class DivisionTest {
 
 	@Test
 	public void testEval() {
-		BinaryExpression division = new Division(new Constant(10), new Constant(3));
-		
-		assertEquals(3, division.eval());
+		assertEquals(3, new Division(new Constant(10), new Constant(3)).eval());
 	}
 	
 	@Test
 	public void testEvalBadPath() {
-		BinaryExpression division = new Division(new Constant(10), new Constant(0));
-		
 		try {
-			division.eval();
+			new Division(new Constant(10), new Constant(0)).eval();
 			fail();
 		}catch (ArithmeticException e) {}
 	}

@@ -10,9 +10,7 @@ public class MultiplicationTest {
 
 	@Test
 	public void testEval() {
-		BinaryExpression mul = new Multiplication(new Constant(2), new Constant(5));
-		
-		assertEquals(10, mul.eval());
+		assertEquals(10, new Multiplication(new Constant(2), new Constant(5)).eval());
 	}
 
 }

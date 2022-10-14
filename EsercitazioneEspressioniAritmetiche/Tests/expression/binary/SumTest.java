@@ -10,18 +10,14 @@ public class SumTest {
 
 	@Test
 	public void testEvalBetweenConstants() {
-		BinaryExpression sum = new Sum(new Constant(10), 
-				new Constant(20));
-		
-		assertEquals(30, sum.eval());
+		assertEquals(30, new Sum(new Constant(10), 
+				new Constant(20)).eval());
 	}
 	
 	@Test
 	public void testEvalBetweenExpression() {
-		BinaryExpression sum = new Sum(new Constant(10), 
-				new Sum(new Constant(10), new Constant(20)));
-		
-		assertEquals(40, sum.eval());
+		assertEquals(40, new Sum(new Constant(10), 
+				new Sum(new Constant(10), new Constant(20))).eval());
 	}
 
 }

@@ -10,9 +10,7 @@ public class NegativeTest {
 
 	@Test
 	public void testEval() {
-		UnaryExpression negative = new Negative(new Constant(10));
-		
-		assertEquals(-10, negative.eval());
+		assertEquals(-10, new Negative(new Constant(10)).eval());
 	}
 
 }
